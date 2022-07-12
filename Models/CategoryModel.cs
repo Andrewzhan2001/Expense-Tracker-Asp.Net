@@ -9,12 +9,12 @@ namespace ExpenseRecorder.Models
         [Key] // we want this to be the primary key
         public int CategoryId { get; set; }
 
-        [Column(TypeName = "nvarchar(10)")]
+        [Column(TypeName = "nvarchar(100)")]
         public string Title { get; set; }
         [Column(TypeName = "nvarchar(50)")]
-        public string Icon { get; set; } = ""
+        public string Icon { get; set; } = "";
         [Column(TypeName = "nvarchar(50)")]
-        public string TransactionType { get; set; } = "Expense"
+        public string TransactionType { get; set; } = "Expense";
 
 
     }

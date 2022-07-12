@@ -1,8 +1,12 @@
+using ExpenseRecorder.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<WebDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
