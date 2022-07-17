@@ -65,7 +65,12 @@ namespace ExpenseRecorder.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(categoryModel);
+                // when we new object, id default to be 0
+                if (categoryModel.CategoryId == 0) {
+                    _context.Add(categoryModel);
+                } else {
+                    _context.Update(categoryModel);
+                }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

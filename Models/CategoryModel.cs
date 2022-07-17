@@ -16,6 +16,11 @@ namespace ExpenseRecorder.Models
         [Column(TypeName = "nvarchar(50)")]
         public string TransactionType { get; set; } = "Expense";
 
-
+        [NotMapped]
+        public string? IconedTitle {
+            get {
+                return this.Icon + " " + this.Title;
+            }
+        }
     }
 }

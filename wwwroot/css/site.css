@@ -8,9 +8,14 @@ html {
   }
 }
 
+*:not(.fa-solid):not(.fa):not(.e-icons) {
+    font-family: "Inter";
+}
+
 html {
-  position: relative;
-  min-height: 100%;
+    font-family: "Inter";
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -23,6 +28,8 @@ body {
 .e-bigger {
     font-size: x-large;
 }
+
+/*styles for buttons*/
 
 .e-btn-group.customRbtGroup {
     width: 100%;
@@ -50,3 +57,89 @@ body {
     border-radius: 2rem;
 
 }
+
+/*styles form the grid*/
+/*those are the styles with reference to syncfusion document*/
+.e-grid {
+    border: 0;
+    border-radius: 5px;
+}
+
+    .e-grid .e-gridcontent, .e-grid .e-table {
+        background-color: #1a222b;
+    }
+
+    .e-grid .e-gridheader {
+        background-color: #222b33;
+        padding: 10px;
+        border: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+        .e-grid .e-gridheader .e-headercell {
+            background-color: #222b33;
+        }
+
+    .e-grid .e-gridpager {
+        background-color: #1a222b;
+    }
+
+    .e-grid .e-pagercontainer {
+        background-color: #1a222b;
+        border: none;
+    }
+
+    .e-grid .e-content table {
+        padding: 0px 10px;
+    }
+
+.e-pagercontainer .e-icons {
+    border: none !important;
+    background-color: #1a222b;
+}
+
+.e-pager .e-numericitem {
+    padding: 15px !important;
+    background-color: #1a222b;
+    color: #adb5bd;
+}
+
+    .e-pager .e-numericitem:not(.e-currentitem) {
+        border: none !important;
+    }
+
+    .e-pager .e-numericitem:hover {
+        color: #fff;
+    }
+
+    .e-pager .e-numericitem.e-currentitem {
+        color: #fff;
+        background-color: #31373d;
+        border: none !important;
+    }
+
+.e-pager div.e-icons:not(.e-disable) {
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+}
+
+.e-grid .e-pager {
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/*for the button*/
+.btn:focus, .btn:active {
+    box-shadow: none;
+    outline: none !important;
+}
+
+/*for the hyperlink*/
+.noDecoration, .noDecoration:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
