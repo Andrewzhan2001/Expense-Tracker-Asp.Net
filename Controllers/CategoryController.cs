@@ -77,24 +77,6 @@ namespace ExpenseRecorder.Controllers
             return View(categoryModel);
         }
 
-        // GET: Category/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.NetCategories == null)
-            {
-                return NotFound();
-            }
-
-            var categoryModel = await _context.NetCategories
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
-            if (categoryModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(categoryModel);
-        }
-
         // POST: Category/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

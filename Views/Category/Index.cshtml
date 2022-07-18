@@ -31,8 +31,16 @@
 </script>
 <script id="actionTemplate" type="text/x-template">
     <div class="d-flex flex-row justify-content-start">
+        @*here we sending the GET request to this url*@
         <a class="btn btn-sm noDecoration" href="/Category/CreateOrEdit/${CategoryId}">
             <i class="fa-solid fa-pen fa-lg"></i>
         </a>
+        <form action="/Category/Delete/${CategoryId}" method="post">
+            @*explicitly add the token to the post*@
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-sm btn-link noDecoration" onclick="return confirm(&quot;Are you sure autofocus delete this category?&quot;)">
+                <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
+            </button>
+        </form>
     </div>
 </script>
