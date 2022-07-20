@@ -1,7 +1,7 @@
 ﻿@model ExpenseRecorder.Models.CategoryModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["SiteTitle"] = Model.CategoryId == 0 ? "Create a new category" : "Edit category";
 }
 
 
@@ -29,7 +29,6 @@
                 </div>
                 <div class="d-flex form-group">
                     <ejs-button id="submit" cssClass="e-success" type="submit" content="Save and Submit"></ejs-button>
-                    <a asp-action="Index" class="ps-3">Back to List</a>
                 </div>
             </form>
         </div>

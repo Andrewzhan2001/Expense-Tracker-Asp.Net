@@ -29,6 +29,13 @@ body {
     font-size: x-large;
 }
 
+/*breadcrumb*/
+/*style reference to syncfusion doc*/
+.e-breadcrumb a, .e-breadcrumb a:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
 /*styles for buttons*/
 
 .e-btn-group.customRbtGroup {
