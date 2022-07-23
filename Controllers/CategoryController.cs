@@ -100,5 +100,7 @@ namespace ExpenseRecorder.Controllers
         {
           return _context.NetCategories.Any(e => e.CategoryId == id);
         }
+
+        
     }
 }

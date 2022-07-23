@@ -16,9 +16,27 @@ namespace ExpenseRecorder.Models
         
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
-        public virtual CategoryModel Category { get; set; }
+        public virtual CategoryModel? Category { get; set; }
 
         public int Amount { get; set; }
 
+        [NotMapped]
+        public string? IconedTitle
+        {
+            get
+            {
+                return Category == null  ?  "" : Category.Icon + " " + Category.Title;
+            }
+        }
+
+        [NotMapped]
+        public string? FormatAmount
+        {
+            get
+            {
+                // format to c0
+                return ((Category == null || Category.TransactionType == "Expense") ? "- " : "+ ") + Amount.ToString("C0");
+            }
+        }
     }
 }
