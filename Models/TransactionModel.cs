@@ -13,11 +13,12 @@ namespace ExpenseRecorder.Models
 
         public DateTime Date { get; set; } = DateTime.Now;
 
-        
+        [Range(1,int.MaxValue, ErrorMessage ="Please select a category for this transaction")]
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public virtual CategoryModel? Category { get; set; }
 
+        [Range(1, int.MaxValue, ErrorMessage = "Amount should be greater than 0")]
         public int Amount { get; set; }
 
         [NotMapped]

@@ -32,7 +32,7 @@
         </a>
         <form action="/Transaction/Delete/${TransactionId}" method="post">
             @Html.AntiForgeryToken()
-            <button type="submit" class="btn btn-sm btn-link no-a-decoration"
+            <button type="submit" class="btn btn-sm btn-link noDecoration"
             onclick="return confirm(&quot;Are sure to delete this record?&quot;)">
                 <i class="fa-solid fa-trash-can fa-lg text-danger"></i>
             </button>
