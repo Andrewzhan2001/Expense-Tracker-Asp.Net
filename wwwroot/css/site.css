@@ -29,6 +29,10 @@ body {
     font-size: x-large;
 }
 
+.mainContent {
+    margin-left: 290px;
+}
+
 /*breadcrumb*/
 /*style reference to syncfusion doc*/
 .e-breadcrumb a, .e-breadcrumb a:hover {
@@ -150,3 +154,41 @@ body {
     text-decoration: none;
 }
 
+/*for the side bar partial view*/
+#sideBar{
+    border-right: 1px dashed rgba(75,82,85,0.24);
+    background-color:#12161d;
+    padding: 10px 20px;
+}
+
+.widget {
+    background-color: #1a222b;
+    border-radius: 1rem;
+}
+
+.widget.summary > div:first-child {
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: #222b33;
+}
+
+.widget.income > div:first-child {
+    color: #65da41;
+}
+
+.widget.expense > div:first-child {
+    color: #ff4e48;
+}
+
+.widget.summary > div:first-child i {
+    font-weight: bold;
+}
+
+.widget.balance > div:first-child {
+    color: #2aa1ff;
+}
+
+.widget.chart {
+    padding: 5px;
+}

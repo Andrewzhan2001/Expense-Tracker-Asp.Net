@@ -19,6 +19,7 @@
     <script src="https://cdn.syncfusion.com/ej2/20.4.48/dist/ej2.min.js"></script>
 </head>
 <body class="e-bigger">
+    <partial name="SideBar" />
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -40,36 +41,40 @@
             </div>
         </nav>
     </header>
-    <div class="container mt-5">
+    <div class="mainContent">
+        <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+                <div class="@(ViewData["isDashboard"] == null ? "col-md-10" : "col-md-12")">
                 <main role="main" class="pb-3">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="d-flex flex-column mb-5">
-                                <div class="d-flex mb-1">
-                                    <div class="flex-grow-1">
-                                        <h3 class="fw-bold">@ViewData["SiteTitle"]</h3>
+                    @if (ViewData["isDashboard"] == null)
+                    {
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="d-flex flex-column mb-5">
+                                    <div class="d-flex mb-1">
+                                        <div class="flex-grow-1">
+                                            <h3 class="fw-bold">@ViewData["SiteTitle"]</h3>
+                                        </div>
+                                        <div>
+                                            @if (ViewData["PageText"] != null)
+                                            {
+                                                <a class="btn btn-success" href="@ViewData["PageURL"]">
+                                                    @ViewData["PageText"]
+                                                </a>
+                                            }
+                                        </div>
                                     </div>
-                                    <div>
-                                        @if (ViewData["PageText"] != null)
-                                        {
-                                            <a class="btn btn-success" href="@ViewData["PageURL"]">
-                                                @ViewData["PageText"]
-                                            </a>
-                                        }
-                                    </div>
+                                    <ejs-breadcrumb id="breadcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
                                 </div>
-                                <ejs-breadcrumb id="breadcrumb" separatorTemplate="@Html.Raw("<span class='fa-solid fa-angle-right'></span>")"></ejs-breadcrumb>
                             </div>
                         </div>
-                    </div>
+                    }
                     @RenderBody()
                 </main>
             </div>
         </div>
     </div>
-
+    </div>
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; ExpenseRecorder-Tianyi Copyright Reserved
