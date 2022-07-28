@@ -44,7 +44,18 @@ namespace Expense_Tracker.Controllers
             culture.NumberFormat.CurrencyNegativePattern = 1;
             ViewBag.Balance = String.Format(culture, "{0:C0}", Balance);
 
-            
+            //Doughnut Chart for Expense By Category
+            ViewBag.DoughnutData = RecentTransactions
+                .Where(i => i.Category.TransactionType == "Expense")
+                .GroupBy(j => j.Category.CategoryId) // become (CategoryId, sequence of objects)
+                .Select(k => new // anonymous object
+                {
+                    IconedTitle = k.First().Category.Icon + " " + k.First().Category.Title, // x-value for chat
+                    amount = k.Sum(j => j.Amount), // y value
+                    formattedAmount = k.Sum(j => j.Amount).ToString("C0"), // text
+                })
+                .OrderByDescending(l => l.amount)
+                .ToList();
 
             return View();
         }

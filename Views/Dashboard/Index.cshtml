@@ -44,3 +44,28 @@
     </div>
 </div>
 
+@*Doughnut and Spline Chart on Dashboard*@
+<div class="row mb-4">
+    @*for Doughnut chart*@
+    <div class="col-md-4">
+        <div class="chart widget">
+            <div class="p-4">
+                <h5 class="fw-bold">Expense Summary By Category</h5>
+            </div>
+            @*enablesmartlabels avoid overlapping labels*@
+            <ejs-accumulationchart id="doughnutchart" enableSmartLabels background="#1a222b">
+                <e-accumulation-series-collection>
+                    @*legendshape specify the shape in front of legend*@
+                    <e-accumulation-series dataSource="@ViewBag.DoughnutData" xName="IconedTitle" yName="amount" innerRadius="60%" legendshape="Circle">
+                        <e-accumulationseries-datalabel name="formattedAmount" visible></e-accumulationseries-datalabel>
+                    </e-accumulation-series>
+                </e-accumulation-series-collection>
+                @*those the categories labels/legend*@
+                <e-accumulationchart-legendsettings position="Top" >
+                    <e-legendsettings-textstyle color="#ffffff" size="1rem"></e-legendsettings-textstyle>
+                </e-accumulationchart-legendsettings>
+                <e-accumulationchart-tooltipsettings enable></e-accumulationchart-tooltipsettings>
+            </ejs-accumulationchart>
+        </div>
+    </div>
+</div>
