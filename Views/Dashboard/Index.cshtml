@@ -53,7 +53,7 @@
                 <h5 class="fw-bold">Expense Summary By Category</h5>
             </div>
             @*enablesmartlabels avoid overlapping labels*@
-            <ejs-accumulationchart id="doughnutchart" enableSmartLabels background="#1a222b">
+            <ejs-accumulationchart id="doughnutChart" enableSmartLabels background="#1a222b">
                 <e-accumulation-series-collection>
                     @*legendshape specify the shape in front of legend*@
                     <e-accumulation-series dataSource="@ViewBag.DoughnutData" xName="IconedTitle" yName="amount" innerRadius="60%" legendshape="Circle">
@@ -62,10 +62,51 @@
                 </e-accumulation-series-collection>
                 @*those the categories labels/legend*@
                 <e-accumulationchart-legendsettings position="Top" >
-                    <e-legendsettings-textstyle color="#ffffff" size="1rem"></e-legendsettings-textstyle>
+                    <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
                 </e-accumulationchart-legendsettings>
                 <e-accumulationchart-tooltipsettings enable></e-accumulationchart-tooltipsettings>
             </ejs-accumulationchart>
         </div>
     </div>
+    @*for the Spline chart*@
+    <div class="col-md-8">
+        <div class="widget chart">
+            <div class="p-4">
+                <h5 class="fw-bold">Income and Expense</h5>
+            </div>
+            @*palettes specify the color of each line*@
+            <ejs-chart id="spline-chart" background="#1a222b" palettes=@(new string[] { "#54ffa9", "#ffe91a" })>
+                @*for the x axis*@
+                @* render datetime use category axis*@
+                <e-chart-primaryxaxis valueType="Category">
+                    @*remove horizontal and vertical line in the chart*@
+                    <e-majorgridlines width="0"></e-majorgridlines>
+                    @*remove little line at right of number on the axis*@
+                    <e-majorticklines width="0"></e-majorticklines>
+                </e-chart-primaryxaxis>
+                @*for the y axis*@
+                <e-chart-primaryyaxis>
+                    @*dasharray specify proportion of dash and space*@
+                    <e-majorgridlines width="1" color="#32414d" dashArray="3,5"></e-majorgridlines>
+                    <e-majorticklines width="0"></e-majorticklines>
+                    <e-linestyle width="0"></e-linestyle>
+                </e-chart-primaryyaxis>
+                @*remove the border of chart*@
+                <e-chart-chartarea>
+                    <e-chartarea-border width="0"></e-chartarea-border>
+                </e-chart-chartarea>
+                <e-series-collection>
+                    <e-series dataSource="@ViewBag.SplineData" xName="date" width="3" yName="income" name="Income" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                    <e-series dataSource="@ViewBag.SplineData" xName="date" width="3" yName="expense" name="Expense" type="@Syncfusion.EJ2.Charts.ChartSeriesType.Spline"></e-series>
+                </e-series-collection>
+                @*specify the style of legends*@
+                <e-chart-legendsettings position="Top" alignment="Far">
+                    <e-legendsettings-textstyle color="#fff" size="1rem"></e-legendsettings-textstyle>
+                </e-chart-legendsettings>
+                @*use shared to have both income and expense on tooltip*@
+                <e-chart-tooltipsettings enable shared></e-chart-tooltipsettings>
+            </ejs-chart>
+        </div>
+    </div>
 </div>
+
