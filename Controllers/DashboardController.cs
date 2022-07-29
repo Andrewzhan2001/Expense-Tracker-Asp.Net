@@ -100,7 +100,13 @@ namespace Expense_Tracker.Controllers
                                           income = eachJoinedIncome == null ? 0 : eachJoinedIncome.income,
                                           expense = eachJoinedExpense == null ? 0 : eachJoinedExpense.expense,
                                       };
-            
+            //Recent Transactions
+            ViewBag.RecentTransactions = await _context.NetTransactions
+                .Include(i => i.Category)
+                .OrderByDescending(j => j.Date)
+                .Take(5) // take 5 transactions after sorting
+                .ToListAsync();
+
 
             return View();
         }
