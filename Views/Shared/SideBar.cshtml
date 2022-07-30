@@ -2,30 +2,34 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    // template from doc
     List<Object> menuItems = new List<Object>();
 
     menuItems.Add(new
     {
-        text = "General",
-        separator = true,
+        text = "General", separator = true,
+    });
+    @*iconcss can add your icon before text*@
+    menuItems.Add(new
+    {
+        
+        text = "Dashboard", url = "/", iconCss = "fa-solid fa-list",
     });
     menuItems.Add(new
     {
-        text = "Dashboard",
-        url = "/",
-        iconCss = "fa-solid fa-box",
+        text = "Categories", url = "/Category", iconCss = "fa-solid fa-tag",
+        items = new List<object>()
+        {
+            new {text = "Add New Category", iconCss = "fa-solid fa-plus fa-spin", url="/Category/CreateOrEdit"}
+        }
     });
     menuItems.Add(new
     {
-        text = "Categories",
-        url = "/Category",
-        iconCss = "fa-solid fa-folder-closed",
-    });
-    menuItems.Add(new
-    {
-        text = "Transactions",
-        iconCss = "fa-solid fa-arrow-right-arrow-left",
-        url = "/Transaction"
+        text = "Transactions", iconCss = "fa-solid fa-arrow-right-arrow-left", url = "/Transaction",
+        items = new List<object>()
+        {
+            new {text = "Create New Transaction", iconCss = "fa-solid fa-plus fa-spin", url="/Transaction/CreateOrEdit"}
+        }
     });
 
     menuItems.Add(new
@@ -46,38 +50,37 @@
     });
 }
 
-
-<ejs-sidebar id="sideBar" width="290px" enableDock dockSize="100px"
-             target=".dock-target" enableGestures="false">
+@*taget bind with div in layout so when sidebar hide, content take that place*@
+<ejs-sidebar id="sideBar" width="290px" enableDock dockSize="100px" target=".dockTarget">
     <e-content-template>
-
-        <div class="logo-wrapper">
-            <div class="app-logo">
+        <div class="logoWrapper">
+            <div class="appLogo">
                 <img src="~/logo.png" />
             </div>
             <div class="w-100"></div>
-            <i id="sidebar-toggler" class="fa-solid"></i>
+            @*in css, we can use content: unicode of icon to switch icon*@
+            <i id="sidebarToggler" class="fa-solid"></i>
         </div>
 
-        <div class="profile-wrapper">
-            <img class="profile-pic" src="~/profile.jpg" />
+        <div class="profileWrapper">
+            <img class="profilePic" src="~/profile.jpg" />
             <div class="titles d-flex flex-column ps-3">
                 <h6 class="mb-0">Wallet App</h6>
-                <span class="text-muted">Ashton Cox</span>
+                <span class="text-muted">Tianyi Zhan</span>
             </div>
         </div>
-
-        <ejs-menu id="menu"
-                  items="menuItems"
-                  orientation="Vertical"
-                  hamburgerMode></ejs-menu>
+        @*orientation: way to list menuitems*@
+        <ejs-menu id="menu" items="menuItems" orientation="Vertical" hamburgerMode></ejs-menu>
     </e-content-template>
 </ejs-sidebar>
 
+@*click to hide the sidebar*@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        dockBar = document.getElementById('sidebar').ej2_instances[0];
-        document.getElementById('sidebar-toggler').onclick = function () {
+        // get the e-content-template
+        dockBar = document.getElementById('sideBar').ej2_instances[0];
+        document.getElementById('sidebarToggler').onclick = function () {
+            // this method will switch between open and close
             dockBar.toggle();
         };
     });

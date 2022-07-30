@@ -20,7 +20,7 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: #24252D;
+    background-color: #12161d;
     color: white;
     height: 100vh;
 }
@@ -159,6 +159,65 @@ body {
     border-right: 1px dashed rgba(75,82,85,0.24);
     background-color:#12161d;
     padding: 10px 20px;
+    overflow: hidden;
+}
+#sideBar .e-menu-wrapper {
+    width: 100%;
+    background-color: inherit;
+
+}
+
+#sidebarToggler {
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#sidebarToggler:hover {
+    cursor: pointer;
+    background-color: #48545f14;
+    transform: scale(1.05) translateZ(0px);
+}
+
+#sideBar.e-close {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#sideBar.e-close .appLogo {
+        display: none;
+}
+
+#sideBar.e-close .e-anchor-wrap, #sidebar.e-close .e-menu-item.e-menu-caret-icon {
+        font-size: 0px;
+}
+
+#sideBar.e-close .profileWrapper .titles {
+        display: none !important;
+}
+
+
+#sideBar.e-open .e-anchor-wrap,
+#sideBar.e-close .e-menu-icon, #sidebar.e-open .e-menu-icon {
+    visibility: visible;
+}
+
+#sideBar.e-open .profileWrapper .titles, #sidebar.e-open .appLogo {
+    display: flex;
+}
+
+#sideBar.e-sidebar.e-right.e-close {
+    visibility: visible;
+    transform: translateX(0%);
+}
+
+#sideBar.e-open #sidebarToggler:before {
+    content: '\f100'
+}
+
+#sideBar.e-close #sidebarToggler:before {
+    content: '\f101'
 }
 
 .widget {
@@ -191,4 +250,105 @@ body {
 
 .widget.chart {
     padding: 5px;
+}
+
+/*for the navbar*/
+nav.navbar {
+    background-color: rgba(18,22,29);
+}
+
+nav.navbar i {
+    font-size: 1.2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+nav.navbar i:hover, nav.navbar img:hover {
+    transform: scale(1.05) translateZ(0px);
+    cursor: pointer;
+    background-color: #48545f14;
+}
+
+nav.navbar {
+    margin-left: 290px;
+}
+
+/*Profile Piccture*/
+img.profilePic {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.profileWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    background-color: rgba(72, 84, 95, 0.12);
+    cursor: pointer;
+}
+
+.profileWrapper .titles {
+    line-height: 1;
+}
+
+/*Style for Menu*/
+#menu {
+    background-color: inherit;
+    width: 100% !important;
+    overflow: hidden;
+}
+
+#menu .e-menu-item {
+    box-sizing: border-box;
+}
+
+#menu .e-menu-item a {
+    box-sizing: border-box;
+    color: rgb(171, 163, 152);
+    font-weight: 300;
+    width: 100%;
+    padding: 7px 5px;
+}
+
+#menu .e-anchor-wrap {
+    display: inline-block;
+}
+
+#menu .e-menu-item .e-anchor-wrap span.e-menu-icon {
+    color: rgb(171, 163, 152);
+}
+
+#menu .e-menu-item.e-separator {
+    color: #65da41;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 5px 5px;
+    border: none;
+    text-transform: uppercase;
+}
+
+#menu .e-menu-item.e-separator:not(:first-child) {
+    margin-top: 35px;
+}
+
+/*Style for Logo*/
+.logoWrapper {
+    align-items: center;
+    flex-direction: row;
+    height: 70px;
+    display: flex;
+}
+
+.appLogo img {
+    padding: 10px 10px;
+    object-fit: cover;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
 }
