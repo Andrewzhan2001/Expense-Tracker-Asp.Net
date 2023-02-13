@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseRecorder.Migrations
 {
     [DbContext(typeof(WebDbContext))]
-    [Migration("20230211102714_Initial Create")]
+    [Migration("20230213183214_Initial Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
