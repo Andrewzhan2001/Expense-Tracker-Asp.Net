@@ -19,6 +19,7 @@ https://user-images.githubusercontent.com/97903569/218837631-06d293bc-ed3c-4ec0-
 
 ## ✍️ Features 
 - This project was created by `C#` and using `ASP.NET MVC` and `ASP.NET Core` as the framework
+- Using `BootStrap` for the component styling
 - Users can `create`, `edit` or `delete` any transactions and categories.
 - If the user deletes a category, transactions belong to this category will be deleted. This feature is realized by `foreign key` through SQL.
 - User can sort their transactions and categories
