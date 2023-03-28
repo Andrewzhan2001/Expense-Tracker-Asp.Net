@@ -6,7 +6,7 @@
 </p>
 
 ---
-### Please acces the website using this [Link](https://expenserecorder.azurewebsites.net)
+### Please acces the website using this [Link](https://andrewexpense.azurewebsites.net/)
 
 ## ⚠️ Important Notes: 
 - As the Azure SQL Database is not free, this project may not be working someday in the future.
